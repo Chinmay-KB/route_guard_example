@@ -9,6 +9,8 @@
 .history
 .svn/
 
+routing_algo.md
+
 # IntelliJ related
 *.iml
 *.ipr
