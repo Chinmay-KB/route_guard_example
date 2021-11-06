@@ -5,9 +5,11 @@ import 'package:route_guard_example/screens/dashboard/products/add_products/add_
 import 'package:route_guard_example/screens/dashboard/products/products_screen.dart';
 import 'package:route_guard_example/screens/dashboard/profile/profile_screen.dart';
 import 'package:route_guard_example/screens/home/home_screen.dart';
+import 'package:route_guard_example/screens/login/login_screen.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
+    AutoRoute(page: LoginScreen, name: 'LoginRoute', path: 'login'),
     AutoRoute(
       page: HomeScreen,
       name: 'HomeRoute',
