@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:route_guard_example/routes/route_guard.dart';
 import 'package:route_guard_example/screens/about/about_screen.dart';
 import 'package:route_guard_example/screens/dashboard/dashboard_screen.dart';
 import 'package:route_guard_example/screens/dashboard/products/add_products/add_products_screen.dart';
@@ -18,13 +19,18 @@ import 'package:route_guard_example/screens/login/login_screen.dart';
     AutoRoute(
       page: DashboardScreen,
       name: 'DashboardRoute',
-      path: 'dashboard',
+      path: '/dashboard',
+      guards: [RouteGuard],
       children: <AutoRoute>[
-        AutoRoute(
-          page: ProductsScreen,
+        AutoRoute<EmptyRouterPage>(
           name: 'ProductsRoute',
           path: 'products',
+          page: EmptyRouterPage,
           children: [
+            AutoRoute(
+              page: ProductsScreen,
+              path: '',
+            ),
             AutoRoute(
                 page: AddProductsScreen,
                 name: 'AddProductsRoute',
@@ -34,7 +40,7 @@ import 'package:route_guard_example/screens/login/login_screen.dart';
         AutoRoute(page: ProfileScreen, name: 'ProfileRoute', path: 'profile')
       ],
     ),
-    AutoRoute(page: AboutScreen, name: 'AboutRouter', path: 'about')
+    AutoRoute(page: AboutScreen, name: 'AboutRouter', path: '/about')
   ],
 )
 class $AppRouter {}

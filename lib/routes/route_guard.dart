@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:route_guard_example/routes/router.gr.dart';
 import 'package:route_guard_example/screens/login/login_screen.dart';
 import 'package:route_guard_example/util/auth_service.dart';
 
@@ -18,10 +19,13 @@ class RouteGuard extends AutoRedirectGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     if (authService.authenticated) return resolver.next();
-    // router.push(
-    //   LoginScreen(onLoginCallback: (_){
-
-    //   })
-    // );
+    router.push(
+      LoginRoute(
+        onLoginCallback: (_) {
+          resolver.next();
+          router.removeLast();
+        },
+      ),
+    );
   }
 }

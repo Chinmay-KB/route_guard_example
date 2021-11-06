@@ -9,10 +9,41 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Home'),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        AutoRouter.of(context).push(DashboardRoute());
-      }),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Welcome to route guard example',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    AutoRouter.of(context).push(const DashboardRoute());
+                  },
+                  child: Text(
+                    'Go to dashboard',
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    AutoRouter.of(context).push(const AboutRouter());
+                  },
+                  child: Text(
+                    'About page',
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }

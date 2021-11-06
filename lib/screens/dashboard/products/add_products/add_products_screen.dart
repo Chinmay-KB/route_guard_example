@@ -5,8 +5,15 @@ class AddProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('Add products'),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'Here we can add new products',
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+      ),
     );
   }
 }

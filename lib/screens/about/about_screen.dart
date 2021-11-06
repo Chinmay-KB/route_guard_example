@@ -5,8 +5,14 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('About'),
-    );
+    return const Scaffold(
+        body: Center(
+      child: Text(
+        'This is our about screen',
+        style: TextStyle(
+          fontSize: 16,
+        ),
+      ),
+    ));
   }
 }
